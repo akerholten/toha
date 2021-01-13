@@ -104,6 +104,29 @@ var projectCards;
       projectCards = $(".filtr-projects").filterizr({ layout: 'sameWidth' });
     }
 
+    // ==================== Adjust height of the project card =============
+    function adjustProjectCardsHeight() {
+      if (!isMobile) { // no need to adjust height for mobile devices
+        // primary skills
+        var projectCards = document.getElementById("project-card-holder");
+        if (projectCards != null) {
+          var cardElems = projectCards.getElementsByClassName("card");
+          var maxHeight = 0;
+          for (let i = 0; i < cardElems.length; i++) {
+            if (cardElems.item(i).clientHeight > maxHeight) {
+              maxHeight = cardElems.item(i).clientHeight;
+            }
+          }
+          for (let i = 0; i < cardElems.length; i++) {
+            cardElems.item(i).setAttribute("style", "min-height: " + maxHeight + "px;");
+          }
+        }
+      }
+    }
+    $(window).on("load", function () {
+      adjustProjectCardsHeight();
+    });
+
     function showGithubStars() {
       // fix the github button class
       // we had set it to github-button-inactive in projects holder cards so that respective javascript

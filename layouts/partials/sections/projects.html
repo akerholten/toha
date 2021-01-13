@@ -16,11 +16,11 @@
       {{ end }}
     </div>
   </div>
-  <div class="container filtr-projects">
-    <div class="row" id="project-card-holder">
-      {{ range .projects }}
-        {{ partial "cards/project" . }}
-      {{ end }}
+    <div class="container filtr-projects">
+      <div class="row" id="project-card-holder">
+        {{ range .projects }}
+          {{ partial "cards/project" . }}
+        {{ end }}
+      </div>
     </div>
-  </div>
 </div>
